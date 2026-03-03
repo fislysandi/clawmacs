@@ -17,10 +17,17 @@ Edit `docker-compose.yml` and change:
 
 - `CLAWMACS_API_TOKEN`
 
-## 3) Build and run
+## 3) Pull and run
 
 ```bash
-docker compose up -d --build
+docker compose pull
+docker compose up -d
+```
+
+Optional: use another image tag for rollout testing:
+
+```bash
+CLAWMACS_IMAGE=ghcr.io/fislysandi/clawmacs:sha-<commit> docker compose up -d
 ```
 
 ## 4) Verify

@@ -1,8 +1,6 @@
 services:
   clawmacs:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ${CLAWMACS_IMAGE:-ghcr.io/fislysandi/clawmacs:feat-docker-compose-deploy}
     container_name: clawmacs
     restart: unless-stopped
     ports:
