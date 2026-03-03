@@ -62,7 +62,7 @@
     (unless (search "quicklisp/setup.lisp" existing)
       (with-open-file (out init-path :direction :output :if-exists :append :if-does-not-exist :create)
         (write-string snippet out)))
-    (format t "[quicklisp] Ensured ~/.sbclrc loads quicklisp/setup.lisp.~%")))
+    (format t "[quicklisp] Ensured ~~/.sbclrc loads quicklisp/setup.lisp.~%")))
 
 (defun set-quicklisp-proxy (proxy-url)
   (when proxy-url
