@@ -1,0 +1,27 @@
+services:
+  clawmacs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: clawmacs
+    restart: unless-stopped
+    ports:
+      - "18789:18789"
+    environment:
+      CLAWMACS_PORT: "18789"
+      CLAWMACS_ADDRESS: "0.0.0.0"
+      CLAWMACS_API_TOKEN: "change-this-token"
+      CLAWMACS_DEFAULT_MODEL: "gpt-5.3-codex"
+      CODEX_OAUTH_CLIENT_ID: "app_EMoamEEZ73f0CkXaXp7hrann"
+    volumes:
+      - clawmacs-home:/root/.clawmacs
+      - ./logs:/root/logs
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:18789/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 45s
+
+volumes:
+  clawmacs-home:

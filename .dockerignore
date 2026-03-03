@@ -1,0 +1,11 @@
+.git
+.github
+.openclaw
+ci-pending
+logs
+memory
+knowledge
+node_modules
+**/node_modules
+**/.pnpm-store
+*.log
